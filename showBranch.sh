@@ -1,5 +1,6 @@
 #!/bin/bash
 source gitColour.sh
+source gitFunctions.sh
 clear
 
 arrOpts=("Local" "Remote" "Local and Remote")
@@ -10,10 +11,10 @@ if [ ${#1} -lt 1 ]; then
     done
 
     printf "\nCurrent branch is : ${green}"
-    git branch --show-current      #Git 2.22 and above 
+    getCurrentBranch
     printf "${clear}"
 
-    printf "\n\nSelect option from list : "
+    printf "\n\nSelect option from list or ${blue}${bold}X${clear} to cancel: "
     read brNumber
 else
     if [[ $1 == "l" || $1 == "L" ]]; then
@@ -23,18 +24,18 @@ else
     elif [[ $1 == "b" || $1 == "B" ]]; then
         brNumber=3
     else
-        brNumber=4
+        exit
     fi
 fi
 
 
 LEN=${#brNumber}
 if [ $LEN -lt 1 ]; then 
-    brNumber=4
+    exit
 fi
 
 if [ $brNumber == 1 ]; then # show only local branches
-    git branch
+    listLocalBranches
 elif [ $brNumber == 2 ]; then # show only remote branches
     git branch -r
 elif [ $brNumber == 3 ]; then # show local and remote branches
