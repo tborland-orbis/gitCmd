@@ -16,29 +16,23 @@ if [ ${#1} -lt 1 ]; then
 
     printf "\n\nSelect option from list or ${blue}${bold}X${clear} to cancel: "
     read brNumber
-    if [[ $brNumber == "l" || $brNumber == "L" ]]; then
-        brNumber=1
-    elif [[ $brNumber == "r" || $brNumber == "R" ]]; then
-        brNumber=2
-    elif [[ $brNumber == "b" || $brNumber == "B" ]]; then
-        brNumber=3
-    fi
 else
-    if [[ $1 == "l" || $1 == "L" ]]; then
-        brNumber=1
-    elif [[ $1 == "r" || $1 == "R" ]]; then
-        brNumber=2
-    elif [[ $1 == "b" || $1 == "B" ]]; then
-        brNumber=3
-    elif [[ $1 == "c" || $1 == "c" ]]; then
-        printf "\nCurrent branch is : ${green}"
-        getCurrentBranch
-        printf "${clear}"
-    else
-        exit
-    fi
+    brNumber=$1
 fi
 
+if [[ $brNumber == "l" || $brNumber == "L" ]]; then
+    brNumber=1
+elif [[ $brNumber == "r" || $brNumber == "R" ]]; then
+    brNumber=2
+elif [[ $brNumber == "b" || $brNumber == "B" ]]; then
+    brNumber=3
+elif [[ $brNumber == "c" || $brNumber == "c" ]]; then
+    printf "\nCurrent branch is : ${green}"
+    getCurrentBranch
+    printf "${clear}"
+else
+        exit
+fi
 
 LEN=${#brNumber}
 if [ $LEN -lt 1 ]; then 
