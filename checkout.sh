@@ -31,6 +31,7 @@ if [[ $brNumber == "X"  ||  $brNumber == "x" ]]; then
 elif [[ $brNumber == "M"  ||  $brNumber == "m" ]]; then 
     printf "\nChecking out the main branch.\n"
     git checkout main
+    pullForce.sh
 elif [[ $brNumber == "B"  ||  $brNumber == "b" ]]; then 
     printf "\nEnter name of new local branch:  "
     read brName
