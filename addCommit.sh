@@ -1,5 +1,9 @@
 #!/bin/bash
-git add . 
+source gitColour.sh
+source gitFunctions.sh
+clear
+
+git add .
 git commit .
 git status
 
