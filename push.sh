@@ -18,12 +18,12 @@ case $brNumber in
         exit
         ;;
     "1")
-        git push
+        git push to existing upstream
         exit
         ;;
     "2")
         clear 
-        listLocalBranches "\n\nSelect the Git branch to push upstream or ${blue}${bold}X${clear} to cancel: "
+        listLocalBranches "\n\nSelect the Git branch to push creating upstream or ${blue}${bold}X${clear} to cancel: "
         read brNumber
     
         LEN=${#brNumber}

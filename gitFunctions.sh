@@ -56,3 +56,28 @@ function getCurrentDir()
         echo "$myresult"
     fi
 }
+
+function applyDevPatch()
+{
+    echo "Path: $1, Patch File: $2"
+    cd $1
+    git apply $2
+}
+
+function reverseDevPatch()
+{
+    echo "Path: $1"
+    cd $1
+    git checkout ./WebContent/WEB-INF/jsp/grid/grid_placeHolder.jsp
+    git checkout ./WebContent/WEB-INF/jsp/linkedResources.jsp
+    git checkout ./WebContent/WEB-INF/jsp/templates/temp_orbis_main_myAccount.jsp
+    git checkout ./WebContent/WEB-INF/spiralRobot/jsp/staticResources.jsp
+    git checkout ./WebContent/WEB-INF/spiralRobot/jsp/templates/temp_orbis_main_myAccount.jsp
+    git checkout ./WebContent/WEB-INF/tags/orbis/ajax.tag
+    git checkout ./WebContent/WEB-INF/tags/orbis/include.tag
+    git checkout ./WebContent/WEB-INF/tags/ui/ajax.tag
+    git checkout ./src/java/com/orbis/web/OrbisController.java
+    git checkout ./src/java/com/orbis/web/site/SiteController.java
+    git checkout ./src/java/com/orbis/web/site/SiteElementTypeController.java
+    git checkout ./src/java/log4j.properties    
+}
