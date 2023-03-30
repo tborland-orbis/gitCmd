@@ -18,7 +18,7 @@ case $brNumber in
         exit
         ;;
     "1")
-        git push to existing upstream
+        git push
         exit
         ;;
     "2")
