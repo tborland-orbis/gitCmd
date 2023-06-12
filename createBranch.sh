@@ -22,6 +22,7 @@ fi
 
 if [[ $usrAnswer == "Y" || $usrAnswer == "y" ]]; then 
     printf "\nCreating new branch : ${green}${bold}${newBranch}${clear} \n" 
+    gitPullForce.sh
     git checkout -b $newBranch
 else
     printf "\nCreate new branch canceled by user.\n"
